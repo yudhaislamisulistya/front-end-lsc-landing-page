@@ -1,0 +1,218 @@
+
+
+// class Timer extends Component{
+
+
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       time : props.start
+//     }
+//   }
+
+//   componentDidMount(){
+//     this.addInterval = setInterval(() => {
+//       this.increase()
+//     }, 1000);
+//   }
+
+//   componentWillUnmount(){
+//     clearInterval(this.addInterval)
+//   }
+
+//   increase(){
+//     // Update
+//     this.setState((state, props) => ({
+//       time : parseInt(state.time) + 1
+//     }));
+//   }
+
+
+//   render() {
+//     return (
+//       <div>
+//         {this.state.time} Detik
+//       </div>
+//     )
+//   }
+
+// }
+
+// function Clicker() {
+//   function handleClick(e) {
+//     e.preventDefault();
+//     alert('Berhasil Di Tekan');
+//   }
+
+//   return(
+//     <a href="#" onClick={handleClick}>Telah Diklik Bro</a>
+//   )
+// }
+
+// class Toogle extends Component{
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       toogleStatus : true
+//     }
+//     this.handleClick = this.handleClick.bind(this);
+//   }
+
+//   handleClick(){
+//     this.setState(state => ({
+//       toogleStatus : !state.toogleStatus
+//     }));
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={this.handleClick} class="btn btn-primary">{this.state.toogleStatus ? 'ON' : 'OFF'}</button>
+//       </div>
+//     )
+//   }
+
+// }
+
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//         <Timer start="0"></Timer>
+//         <Clicker></Clicker>
+//         <Toogle></Toogle>
+//       </header>
+//     </div>
+//   );
+// }
+
+// Todo List
+
+// class App extends Component{
+
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       todoItem : '',
+//       item : []
+//     }
+//   }
+
+
+//   handleSubmit = (event) =>{
+//     event.preventDefault();
+//     console.log('Selamat Datang');
+//   }
+
+//   handleChange = (event) => {
+//     event.preventDefault();
+//     this.setState({
+//       todoItem : event.target.value
+//     })
+
+//     console.log(this.state.todoItem);
+
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this.handleSubmit}>
+//           <input value={this.state.todoItem} onChange={this.handleChange}/>
+//           <button>Add</button>
+//         </form>
+//       </div>
+//     )
+//   }
+// }
+
+
+// Konsumsi API
+
+// class App extends Component{
+
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       items: []
+//     }
+//   }
+
+
+
+//   componentDidMount(){
+//     this.addDataInterval = setInterval(() => {
+//       this.getDataMeetings()
+//     }, 1000);
+//   }
+
+//   componentWillUnmount(){
+//     clearInterval(this.addDataInterval)
+//   }
+
+//   getDataMeetings(){
+//     fetch("http://localhost:8000/meetings")
+//       .then(response => response.json())
+//       .then(data => this.setState({
+//         items: data
+//       }))
+//   }
+
+
+//   render() {
+//     const {items} = this.state
+//     return (
+//       <div>
+//         <ul>
+//           {items.map((item, index) =>
+//             <li key={index}>{item.title}</li>
+//           )}
+//         </ul>
+//       </div>
+//     )
+//   }
+// }
+
+// SPA
+
+// function Home() {
+//   return <h1>Halaman Home</h1>
+// }
+
+// function ListView() {
+//   return <h1>Halaman User</h1>
+// }
+
+// class App extends Component{
+//   render() {
+//     return (
+//       <BrowserRouter>
+//         <div>
+//           <nav>
+//             <li><Link to='/'>Home</Link></li>
+//             <li><Link to='/user'>User</Link></li>
+//           </nav>
+
+//           <main>
+//             <Route path="/" exact component={Home} />
+//             <Route path="/user" exact component={ListView} />
+
+//           </main>
+//         </div>
+//       </BrowserRouter>
+//     )
+//   }
+// }
